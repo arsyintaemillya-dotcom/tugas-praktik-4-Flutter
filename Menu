@@ -1,0 +1,149 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Menu Kafe',
+      home: const DetailMenu(),
+    );
+  }
+}
+
+class DetailMenu extends StatelessWidget {
+  const DetailMenu({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Detail Menu Kafe'),
+        backgroundColor: Colors.brown,
+        foregroundColor: Colors.white,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Tugas 1: Gambar menu
+            Image.network(
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxeBwQkgzWY3R7j213_8L84UeSuf2J0v6O-3r2RM_inT20kLhaDYRpK46W&s=10',
+              width: double.infinity,
+              height: 500,
+              fit: BoxFit.cover,
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Tugas 2: Nama dan harga menu
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Cappuccino Special',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Text(
+                        'Rp25.000',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.brown,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // Tugas 3: Informasi menu
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.brown.shade100,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(
+                          children: const [
+                            Icon(Icons.star, color: Colors.orange),
+                            Text('4.9'),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Icon(Icons.access_time, color: Colors.brown),
+                            Text('10 menit'),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Icon(Icons.local_fire_department,
+                                color: Colors.red),
+                            Text('150 kal'),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // Tugas 4: Deskripsi menu
+                  const Text(
+                    'Deskripsi',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  const SizedBox(height: 8),
+
+                  const Text(
+                    'Cappuccino Special adalah minuman kopi '
+                    'yang dibuat dari perpaduan espresso, susu '
+                    'segar, dan busa susu lembut. Cocok dinikmati '
+                    'saat bersantai di kafe.',
+                    style: TextStyle(fontSize: 16),
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  // Tugas 5: Tombol pesan
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.brown,
+                        foregroundColor: Colors.white,
+                      ),
+                      onPressed: () {},
+                      child: const Text('Pesan Sekarang'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
